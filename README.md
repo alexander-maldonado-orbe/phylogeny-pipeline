@@ -17,20 +17,6 @@ This pipeline automates the process of:
 - Homebrew (recommended for installation)
 - Basic terminal knowledge
 
-## Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/alexander-maldonado-orbe/phylogenetic-pipeline.git
-cd phylogenetic-pipeline
-
-# Make scripts executable
-chmod +x pipeline.sh scripts/*.sh
-
-# Run the pipeline with your data
-./pipeline.sh -i test/test_sequences.fasta -o my_results
-```
-
 ## Step 1: Installation
 Install all dependencies:
 
@@ -102,9 +88,53 @@ iqtree -version
 Input file must be in FASTA format.
 
 ## Step 3: Run the pipeline
+
 ```bash
+# Clone the repository
+git clone https://github.com/alexander-maldonado-orbe/phylogenetic-pipeline.git
+cd phylogenetic-pipeline
+
+# Make the pipeline executable
+chmod +x pipeline.sh
+
+# Run the pipeline with test data
+./pipeline.sh -i test/test_sequences.fasta -o my_results
+
+# Run with your own sequences
 ./pipeline.sh -i your_sequences.fasta -o output_directory
 ```
+
+### Common examples
+```bash
+# Standard analysis with 4 CPU threads
+./pipeline.sh -i sequences.fasta -o analysis -t 4
+
+# High-confidence analysis with 20,000 bootstraps
+./pipeline.sh -i sequences.fasta -o robust_analysis -t 8 -b 20000 -a 20000
+
+# Quick test run with minimal bootstraps
+./pipeline.sh -i test.fasta -o quick_test -b 1000
+
+# Force re-run (overwrites existing results)
+./pipeline.sh -i sequences.fasta -o analysis -f
+
+# Use automated trimming instead of gappyout
+./pipeline.sh -i sequences.fasta -o analysis -m automated1
+```
+
+## Interactive Mode: Separate Protocols
+
+For users who prefer to run each step individually or want more control over the analysis, the pipeline includes an interactive menu-driven interface.
+
+### Usage
+
+```bash
+# Make the script executable
+chmod +x separate_protocols.sh
+
+# Launch the interactive menu
+./separate_protocols.sh
+
 ## Step 4: Visualize results
 Upload the final tree file (output_directory/final_tree.nwk) to iTOL (https://itol.embl.de/).
 
