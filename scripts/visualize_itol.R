@@ -48,4 +48,3 @@ cat("\nTo visualize in iTOL:\n")
 cat("1. Go to https://itol.embl.de/\n")
 cat("2. Upload", tree_file, "\n")
 cat("3. Drag and drop", annotation_file, "for annotations\n")
-

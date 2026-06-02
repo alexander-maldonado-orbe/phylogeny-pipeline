@@ -27,4 +27,3 @@ trimal -in "$ALIGNED" -out "$TRIMMED" -automated1
 echo "Alignment and trimming complete!"
 echo "Aligned: $ALIGNED"
 echo "Trimmed: $TRIMMED"
-
