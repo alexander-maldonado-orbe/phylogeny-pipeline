@@ -1,0 +1,63 @@
+name: Phylogenetic Pipeline CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      test_file:
+        description: 'Test file name'
+        required: false
+        default: 'test/test_sequences.fasta'
+
+jobs:
+  test-pipeline:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        # Install MAFFT
+        brew install mafft
+        
+        # Install trimAl
+        brew install trimal
+        
+        # Install IQ-TREE
+        cd ~/Downloads
+        curl -L -o iqtree.zip https://github.com/iqtree/iqtree2/releases/download/v2.4.0/iqtree-2.4.0-macOS.zip
+        unzip iqtree.zip
+        sudo mv iqtree-2.4.0-macOS /Applications/
+        echo "$PATH"
+        export PATH=$PATH:/Applications/iqtree-2.4.0-macOS/bin
+        iqtree2 -h
+    
+    - name: Make scripts executable
+      run: |
+        chmod +x pipeline.sh
+        chmod +x scripts/*.sh
+    
+    - name: Run pipeline on test data
+      run: |
+        ./pipeline.sh -i test/test_sequences.fasta -o ci_test_output -t 2
+    
+    - name: Verify output files
+      run: |
+        test -f ci_test_output/aligned.fasta && echo "✓ Alignment file created"
+        test -f ci_test_output/aligned_trimmed.fasta && echo "✓ Trimmed alignment created"
+        test -f ci_test_output/final_tree.nwk && echo "✓ Tree file created"
+        test -s ci_test_output/final_tree.nwk && echo "✓ Tree file not empty"
+        
+        # Check tree file format (should contain parentheses for Newick format)
+        grep -q '(' ci_test_output/final_tree.nwk && echo "✓ Valid Newick format"
+        
+    - name: Upload outputs
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: phylogenetic-outputs
+        path: ci_test_output/
