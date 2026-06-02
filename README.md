@@ -29,3 +29,22 @@ chmod +x pipeline.sh scripts/*.sh
 
 # Run the pipeline with your data
 ./pipeline.sh -i test/test_sequences.fasta -o my_results
+```
+
+## Step 1: Installation
+Install all dependencies:
+
+### MAFFT (alignment)
+
+### trimAl (trimming)
+
+### IQ-TREE (phylogenetics)
+
+## Step 2: Prepare your sequences
+Input file must be in FASTA format.
+
+## Step 3: Run the pipeline
+```bash
+./pipeline.sh -i your_sequences.fasta -o output_directory
+```
+
