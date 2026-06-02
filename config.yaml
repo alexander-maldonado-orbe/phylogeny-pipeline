@@ -1,0 +1,38 @@
+# Configuration file for phylogenetic pipeline
+
+# Default settings
+defaults:
+  threads: AUTO
+  bootstraps: 10000  
+  alrt_replicates: 10000  # SH-aLRT replicates
+  abayes: true  # Incluir test aproximado de Bayes
+  model_selection_criterion: BIC
+  
+# Alignment settings
+mafft:
+  strategy: auto
+  max_iterate: 1000
+  
+# Trimming settings
+trimal:
+  method: gappyout  # gappyout, automated1, strict, stringent
+  gap_threshold: 0.9
+  consistency_threshold: 0.9
+  
+# IQ-TREE settings
+iqtree:
+  model_finder: MFP  # MFP (ModelFinder + Tree) 
+  bootstrap_type: bb  # ultrafast bootstrap
+  additional_flags: ""
+  
+# Output settings
+output:
+  format: newick
+  include_bootstrap: true
+  compress_logs: false
+  
+# iTOL visualization
+itol:
+  default_colors: true
+  branch_labels: false
+  annotation_file: ""
