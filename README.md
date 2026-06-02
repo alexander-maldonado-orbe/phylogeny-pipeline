@@ -35,6 +35,22 @@ chmod +x pipeline.sh scripts/*.sh
 Install all dependencies:
 
 ### MAFFT (alignment)
+Open your Terminal and run the following command:
+```bash
+brew install mafft
+```
+**Alternative Installation Methods**
+If you do not use Homebrew, you can use these other options depending on your system setup:
+**Option 1: Conda or Mamba**
+If you work with bioinformatics pipelines and use a conda environment (such as Miniconda or Anaconda):
+```bash
+conda install -c conda-forge mafft
+```
+**Option 2: MacPorts**
+If you have MacPorts installed on your system:
+```bash
+sudo port install mafft
+```
 
 ### trimAl (trimming)
 
@@ -57,3 +73,9 @@ Upload the final tree file (output_directory/final_tree.nwk) to iTOL (https://it
 - treefile.nwk: Final phylogenetic tree (Newick format)
 - iqtree.log: Complete IQ-TREE log file
 - final_tree.nwk: Renamed final tree for iTOL
+
+## Testing
+Run the test pipeline:
+```bash
+./pipeline.sh -i test/test_sequences.fasta -o test_output
+```
