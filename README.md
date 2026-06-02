@@ -128,12 +128,26 @@ trimal -in your_alignment.fasta -out trimmed_alignment.fasta -gappyout
 ```
 
 ### IQ-TREE (phylogenetics)
-Start IQTREE ((assuming you downloaded version 2.4.0))
+**Start IQTREE** ((assuming you downloaded version 2.4.0))
 ```bash
 export PATH=$PATH:/Applications/iqtree-2.4.0-macOS/bin
 iqtree2
 ```
-
+**Identify the Best Substitution Model with Model Finder**
+Run ModelFinder in IQ-TREE to select the best model:
+For a new analysis
+```bash
+iqtree2 -s sequences_aligned.fasta -m MF -nt AUTO
+```
+To run the analysis again and rewrite the file
+```bash
+iqtree2 -s sequences_aligned.fasta -m MF -nt AUTO -redo
+```
+- iqtree2: Invokes the IQ-TREE 2 program
+- -s sequences_aligned.fasta: Specifies the input file. The -s flag tells the program to read your sequence data from the file named sequences_aligned.fasta. This file must be a multiple sequence alignment (MSA) in FASTA format.
+- -m MF tells IQ-TREE to automatically select the best model based on Bayesian Information Criterion (BIC). ModelFinder (MF) evaluates different evolutionary models of DNA or protein substitution to find the mathematical model that best fits your specific sequence data.
+- -nt AUTO: Sets the number of threads. -nt stands for "number of threads." By setting it to AUTO, you allow IQ-TREE to automatically determine and use the optimal number of computer processor cores to speed up the analysis.
+- -redo: Forces IQ-TREE to overwrite any previous analysis files that share the same name in your current directory. If you ran this same command earlier, this flag ensures it starts fresh rather than trying to resume or throw an error.
 
 
 
