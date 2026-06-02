@@ -149,7 +149,19 @@ iqtree2 -s sequences_aligned.fasta -m MF -nt AUTO -redo
 - -nt AUTO: Sets the number of threads. -nt stands for "number of threads." By setting it to AUTO, you allow IQ-TREE to automatically determine and use the optimal number of computer processor cores to speed up the analysis.
 - -redo: Forces IQ-TREE to overwrite any previous analysis files that share the same name in your current directory. If you ran this same command earlier, this flag ensures it starts fresh rather than trying to resume or throw an error.
 
-
+**IQ-TREE Basic Command**
+To automatically find the best evolutionary model and construct the tree with standard settings, run the following command:
+```bash
+iqtree -s alignment_file.fasta
+```
+**Run with Ultrafast Bootstrapping**
+```bash
+iqtree -s <alignment_file> -m <model_parameters> -bb <replicates> -nt <cores>
+```
+To show the complete list of available options and commands in IQ-TREE, type in your terminal
+```bash
+iqtree -h 
+```
 
 ## Testing
 Run the test pipeline:
