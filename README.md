@@ -171,6 +171,6 @@ Run the test pipeline:
 
 ## Citation
 If you use this pipeline, please cite:
-- IQ-TREE: Minh et al. (2020) Mol. Biol. Evol.
-- MAFFT: Katoh & Standley (2013) Mol. Biol. Evol.
-- trimAl: Capella-Gutiérrez et al. (2009) Bioinformatics
+- Minh, B. Q., Schmidt, H. A., Chernomor, O., Schrempf, D., Woodhams, M. D., von Haeseler, A., & Lanfear, R. (2020). IQ-TREE 2: New models and efficient methods for phylogenetic inference in the genomic era. Molecular Biology and Evolution, 37(5), 1530-1534. https://doi.org/10.1093/molbev/msaa015
+- Katoh, K., & Standley, D. M. (2013). MAFFT multiple sequence alignment software version 7: improvements in performance and usability. Molecular biology and evolution, 30(4), 772–780. https://doi.org/10.1093/molbev/mst010
+- Capella-Gutiérrez, S., Silla-Martínez, J. M., & Gabaldón, T. (2009). trimAl: a tool for automated alignment trimming in large-scale phylogenetic analyses. Bioinformatics (Oxford, England), 25(15), 1972–1973. https://doi.org/10.1093/bioinformatics/btp348
