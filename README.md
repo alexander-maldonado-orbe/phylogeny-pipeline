@@ -35,7 +35,7 @@ chmod +x pipeline.sh scripts/*.sh
 Install all dependencies:
 
 ### MAFFT (alignment)
-**Option 1: Homebrew**
+**Option 1: Homebrew**/
 Open your Terminal and run the following command:
 ```bash
 brew install mafft
@@ -73,6 +73,31 @@ trimal -v
 ```
 
 ### IQ-TREE (phylogenetics)
+**Option 1: Homebrew**
+Open your Terminal and run the following command:
+```bash
+brew install brewsci/bio/iqtree3
+```
+**Option 2: MacPorts**
+```bash
+sudo port install iqtree2
+```
+Test the installation by checking the version:
+```bash
+trimal -v
+```
+**Option 3: Manual Download & Installation**
+- If you prefer not to use a package manager:Go to the IQ-TREE GitHub Releases page (https://iqtree.github.io/doc/Quickstart).
+- Download the latest macOS .zip file.
+- Unzip the file.
+- You will find the iqtree executable inside the extracted bin folder.
+- Move the iqtree executable to a folder in your system path, or run it directly from the folder by navigating to it in your Terminal
+- Open the Terminal.
+- Go into IQ-TREE folder by entering (assuming you downloaded version 1.5.0) (assuming that IQ-TREE was downloaded into Downloads folder).
+```bash
+ cd Downloads/iqtree-1.5.0-MacOSX
+```
+
 
 ## Step 2: Prepare your sequences
 Input file must be in FASTA format.
@@ -97,3 +122,9 @@ Run the test pipeline:
 ```bash
 ./pipeline.sh -i test/test_sequences.fasta -o test_output
 ```
+
+## Citation
+If you use this pipeline, please cite:
+- IQ-TREE: Minh et al. (2020) Mol. Biol. Evol.
+- MAFFT: Katoh & Standley (2013) Mol. Biol. Evol.
+- trimAl: Capella-Gutiérrez et al. (2009) Bioinformatics
