@@ -200,6 +200,30 @@ Run the test pipeline:
 ./pipeline.sh -i test/test_sequences.fasta -o test_output
 ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+You are free to:
+- Use this pipeline commercially or privately
+- Modify and adapt the code
+- Distribute copies
+- Include in larger projects
+
+Under the condition that:
+- You include the original copyright notice and license
+
+No warranty is provided. The authors are not liable for any issues arising from the use of this software.
+
+### Dependencies
+
+This pipeline uses third-party software with their own licenses:
+- [MAFFT](https://mafft.cbrc.jp/alignment/software/) - BSD-like license
+- [trimAl](http://trimal.cgenomics.org/) - GNU GPL
+- [IQ-TREE](http://www.iqtree.org/) - GNU GPL
+
+Please cite these tools appropriately when publishing results.
+
 ## Citation
 If you use this pipeline, please cite:
 - Minh, B. Q., Schmidt, H. A., Chernomor, O., Schrempf, D., Woodhams, M. D., von Haeseler, A., & Lanfear, R. (2020). IQ-TREE 2: New models and efficient methods for phylogenetic inference in the genomic era. Molecular Biology and Evolution, 37(5), 1530-1534. https://doi.org/10.1093/molbev/msaa015
