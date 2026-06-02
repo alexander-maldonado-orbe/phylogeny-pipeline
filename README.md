@@ -35,24 +35,42 @@ chmod +x pipeline.sh scripts/*.sh
 Install all dependencies:
 
 ### MAFFT (alignment)
+**Option 1: Homebrew**
 Open your Terminal and run the following command:
 ```bash
 brew install mafft
 ```
 **Alternative Installation Methods**
 If you do not use Homebrew, you can use these other options depending on your system setup:
-**Option 1: Conda or Mamba**
+**Option 2: Conda or Mamba**
 If you work with bioinformatics pipelines and use a conda environment (such as Miniconda or Anaconda):
 ```bash
 conda install -c conda-forge mafft
 ```
-**Option 2: MacPorts**
+**Option 3: MacPorts**
 If you have MacPorts installed on your system:
 ```bash
 sudo port install mafft
 ```
+Test the installation by checking the version:
+```bash
+mafft -h
+```
 
 ### trimAl (trimming)
+**Option 1: Homebrew**
+Open your Terminal and run the following command:
+```bash
+brew install trimal
+```
+**Option 2: Conda or Mamba**
+```bash
+conda install bioconda::trimal
+```
+Test the installation by checking the version:
+```bash
+trimal -v
+```
 
 ### IQ-TREE (phylogenetics)
 
