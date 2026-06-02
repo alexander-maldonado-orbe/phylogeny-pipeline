@@ -134,11 +134,12 @@ chmod +x separate_protocols.sh
 
 # Launch the interactive menu
 ./separate_protocols.sh
+```
 
 ## Step 4: Visualize results
 Upload the final tree file (output_directory/final_tree.nwk) to iTOL (https://itol.embl.de/).
 
-## Output Files
+### Output Files
 - alignment.fasta: Multiple sequence alignment
 - alignment_trimmed.fasta: Trimmed alignment
 - best_model.txt: Best substitution model selected
