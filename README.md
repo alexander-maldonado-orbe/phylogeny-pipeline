@@ -84,7 +84,7 @@ sudo port install iqtree2
 ```
 Test the installation by checking the version:
 ```bash
-trimal -v
+iqtree -version
 ```
 **Option 3: Manual Download & Installation**
 - If you prefer not to use a package manager:Go to the IQ-TREE GitHub Releases page (https://iqtree.github.io/doc/Quickstart).
@@ -97,7 +97,6 @@ trimal -v
 ```bash
  cd Downloads/iqtree-1.5.0-MacOSX
 ```
-
 
 ## Step 2: Prepare your sequences
 Input file must be in FASTA format.
@@ -116,6 +115,27 @@ Upload the final tree file (output_directory/final_tree.nwk) to iTOL (https://it
 - treefile.nwk: Final phylogenetic tree (Newick format)
 - iqtree.log: Complete IQ-TREE log file
 - final_tree.nwk: Renamed final tree for iTOL
+
+## Separate protocol
+### MAFFT (alignment)
+```bash
+mafft --auto /path/to/your/input.fasta > /path/to/your/output.fasta
+```
+
+### trimAl (trimming)
+```bash
+trimal -in your_alignment.fasta -out trimmed_alignment.fasta -gappyout
+```
+
+### IQ-TREE (phylogenetics)
+Start IQTREE ((assuming you downloaded version 2.4.0))
+```bash
+export PATH=$PATH:/Applications/iqtree-2.4.0-macOS/bin
+iqtree2
+```
+
+
+
 
 ## Testing
 Run the test pipeline:
